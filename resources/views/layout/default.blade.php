@@ -7,6 +7,7 @@
 
     <title>{{ Nova::name() }}</title>
 
+    @include('nova::partials.meta')
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('app.css', 'vendor/nova') }}">
 
