@@ -4,6 +4,7 @@
 namespace Visanduma\NovaTwoFactor;
 
 use Exception;
+use Illuminate\Support\Facades\Auth;
 use PragmaRX\Google2FALaravel\Support\Authenticator;
 
 class TwoFaAuthenticator extends Authenticator
@@ -33,5 +34,10 @@ class TwoFaAuthenticator extends Authenticator
     public function isValidOtp():bool
     {
         return $this->checkOTP() == 'valid';
+    }
+
+    public function getUser()
+    {
+        return Auth::guard(config('nova.guard', 'web'))->user();
     }
 }
