@@ -10,8 +10,14 @@
 Laravel nova in-dashboard 2FA security feature.
 
 
-## Whats New
+## What's New
 
+### v2.2.3
+- Fixed foreign key issue (need to run migration)
+- Translation fixes
+
+### v2.2.2
+- Clear option for current Two  FA settings
 ### v2.2.0
 - Reauthorize any routes using *2FA Prompt* dialog.
 
@@ -34,6 +40,10 @@ Nova login screen with 2FA security
 Reauthorize any route using 2FA prompt
 
 ![screenshot](/resources/img/sc-4.png)
+
+Install the package
+
+`` composer require visanduma/nova-two-factor ``
 
 
 1. Pubish config & migration
