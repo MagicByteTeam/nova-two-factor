@@ -114,8 +114,8 @@ class TwoFactorController extends Controller
     {
         $g2fa = new G2fa();
         $url = $g2fa->getQRCodeUrl($company, $holder, $secret);
-
-        return self::generateGoogleQRCodeUrl('https://chart.googleapis.com/', 'chart', 'chs=' . $size . 'x' . $size . '&chld=M|0&cht=qr&chl=', $url);
+        return "https://api.qrserver.com/v1/create-qr-code/?size={$size}x{$size}&data={$url}";
+        // return self::generateGoogleQRCodeUrl('https://chart.googleapis.com/', 'chart', 'chs=' . $size . 'x' . $size . '&chld=M|0&cht=qr&chl=', $url);
     }
 
     public static function generateGoogleQRCodeUrl($domain, $page, $queryParameters, $qrCodeUrl)
