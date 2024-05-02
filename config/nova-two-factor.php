@@ -7,19 +7,15 @@
 
 return [
 
-    'enabled' => env('NOVA_TWO_FA_ENABLE', true),
+
+    'enabled' => env('NOVA_TWO_FA_ENABLE',true),
+
 
     'user_table' => 'users',
 
+
     'user_id_column' => 'id',
 
-    'connection_name' => env('DB_CONNECTION'),
-
-    /* Encrypt the google secret values saved in database */
-    'encrypt_google2fa_secrets' => false,
-
-    /* QR code can be generate using  Google API or inbuilt 'BaconQrCode' package*/
-    'use_google_qr_code_api' => true,
 
     'user_model' => \App\Models\User::class,
 
@@ -36,7 +32,7 @@ return [
     ],
 
     /**
-     * reauthorize these urls before access, within given timeout
+     * reauthorize these urls before access, withing given timeout
      * you are allowed to use wildcards pattern for url matching
      **/
     'reauthorize_urls' => [
@@ -46,9 +42,5 @@ return [
 
     /* timeout in minutes */
     'reauthorize_timeout' => 5,
-
-    'enable_max_attempts' => false,
-
-    'max_attempts_per_minute' => 3,
 
 ];

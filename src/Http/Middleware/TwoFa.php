@@ -5,13 +5,17 @@ namespace Visanduma\NovaTwoFactor\Http\Middleware;
 
 
 use Closure;
-use Visanduma\NovaTwoFactor\Helpers\NovaUser;
 use Visanduma\NovaTwoFactor\NovaTwoFactor;
 use Visanduma\NovaTwoFactor\TwoFaAuthenticator;
 
 class TwoFa
 {
-    use NovaUser;
+    private $novaGuard;
+
+    public function __construct()
+    {
+        $this->novaGuard = config('nova.guard', 'web');
+    }
 
     /**
      * Handle an incoming request.
@@ -41,7 +45,7 @@ class TwoFa
         $authenticator = app(TwoFaAuthenticator::class)->boot($request);
 
          // turn off security if  user has not 2fa record
-        if(!$this->novaUser()?->twoFa){
+        if(!auth($this->novaGuard)->user()?->twoFa){
             return $next($request);
         }
 
@@ -57,7 +61,7 @@ class TwoFa
         }
 
         // turn off security if 2fa is off
-        if(!$this->novaUser()?->twoFa?->google2fa_enable){
+        if(!auth($this->novaGuard)->user()?->twoFa?->google2fa_enable){
             return $next($request);
         }
 
