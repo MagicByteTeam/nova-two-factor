@@ -95,11 +95,6 @@ return [
 
     'reauthorize_timeout' => 5,
 
-
-    /* QR code can be generate using  online API or inbuilt 'BaconQrCode' package*/
-
-    'use_offline_qr' => false,
-
 ];
 
 ```

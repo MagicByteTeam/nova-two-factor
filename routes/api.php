@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Tool API Routes
@@ -15,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('register', [\Visanduma\NovaTwoFactor\Http\Controller\TwoFactorController::class, 'registerUser']);
 
-Route::match(['get', 'post'], 'recover', [\Visanduma\NovaTwoFactor\Http\Controller\TwoFactorController::class, 'recover'])->name('nova-two-factor.recover');
+Route::match(['get', 'post'], '/recover', [\Visanduma\NovaTwoFactor\Http\Controller\TwoFactorController::class, 'recover'])->name('nova-two-factor.recover');
 
 Route::post('confirm', [\Visanduma\NovaTwoFactor\Http\Controller\TwoFactorController::class, 'verifyOtp']);
 
